@@ -253,6 +253,7 @@ function generateResults() {
 
 
 function render() {
+  $('#header').html(header());
   if (store.quizStarted === false) {
     generateMain();
   } else {
@@ -306,8 +307,14 @@ function restart() {
   });
 }
 
+function header(){
+  return `<header>
+  <h1>Who Will Win!</h1>
+  </header>`;
+}
+
 function generateHTML() {
-  $('.mainBody').html();
+  $('#mainBody').html('<div id="header"></div><div class="mainPage"></div>');
 }
 
 function main() {
