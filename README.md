@@ -23,7 +23,7 @@ Technical Requirements:
  Be fully usable by keyboard
  Use responsive design
 
-Plans:
+Plans: 
  League of Legends based quiz based on 1v1 matches
  Example: Who will win? (Random character vs Random character)
  
