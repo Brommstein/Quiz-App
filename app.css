@@ -6,6 +6,11 @@
   * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
   *
 */
+@font-face{
+  font-family: creepy;
+  src: url('images/BerkahiBlackletter.ttf');
+}
+
 html{
   background-color: black;
 }
@@ -17,8 +22,19 @@ body{
 }
 
 h1, h3{
+  font-family: creepy;
   text-align: center;
   color: white;
+  font-size: 50px;
+}
+
+h2{
+  font-family: creepy;
+  font-size: 36px
+}
+p{
+  font-family: creepy;
+  font-size: 18px;
 }
 
 ul{
@@ -30,6 +46,10 @@ ul{
   display: flex;
   align-items: center;
   margin: 20px;
+}
+
+.scoreBoard{
+  margin-bottom: 75px;
 }
 
 .itemOne{
@@ -54,11 +74,15 @@ ul{
   padding: 10px;
   background-color: white;
   border-radius: 15%;
-  margin-top: 150px;
+  margin-top: 75px;
 }
 
 .mainPage h2{
   margin-bottom: 35px;
+}
+
+.results{
+  margin-top: 10%;
 }
 
 img{
@@ -67,5 +91,7 @@ img{
 }
 
 @media all and (min-width: 600px){
-
+  .mainPage{
+    min-height: 350px;
+  }
 }

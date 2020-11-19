@@ -14,7 +14,7 @@ const characters = {
       type: 'Marksman',
       image: '<img src="images/poroAshe.jpg" alt="Ashe">',
       pro: 'Likes long fights at a range.',
-      con: 'Loses to high damage',
+      con: 'Loses to high damage.',
       loss: ['Zed', 'Ziggs'],
       tie: 'Darius',
       wins: ['Braum', 'Garen']
@@ -188,7 +188,7 @@ function generateQuestion() {
     <br>
     <br>
     <br>
-    <div class="group">
+    <div class="group scoreBoard">
     <div class="itemOne">
     <p>Question ${store.questionNumber + 1} out of ${store.questions.length}</p>
     </div>
@@ -227,7 +227,7 @@ function generateFeedback(answer, correct) {
       return $('.mainPage').html(`<div class="results">
       <h2>Incorrect...</h2>
       <p>Sorry but that's incorrect...</p>
-      <p>The correct answer was ${store.questions[store.questionNumber].correctAnswer}</p>
+      <p>The correct answer was ${store.questions[store.questionNumber].correctAnswer}.</p>
       <button id="nextQuestion"type="button">Next Question</button>
 </div>`);
     }
