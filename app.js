@@ -51,7 +51,7 @@ const characters = {
     },
     {
       name: 'Zed',
-      type: 'Assasssin',
+      type: 'Assassin',
       image: '<img src="images/poroZed.png" alt="Zed">',
       pro: 'High damage and high mobility.',
       con: 'Loses to long fights.',
