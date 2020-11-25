@@ -154,11 +154,9 @@ function generateMain() {
 }
 
 function getCharsForQuestion(){
-  console.log(store.characters.char);
   let charOne = store.characters.char.find(function (characters) {
     return store.questions[store.questionNumber].answers[0] === characters.name;
   });
-  console.log(charOne);
   let charTwo = store.characters.char.find(function (characters) {
     return store.questions[store.questionNumber].answers[1] === characters.name;
   });
@@ -211,40 +209,38 @@ function generateQuestion() {
 </form>`;
 }
 
-function generateFeedback(answer, correct) {
-  if (store.questionNumber === store.questions.length - 1) {
-    if (answer === correct) {
-      store.score++;
-      return `<div class="results">
-    <h2>Correct!</h2>
-    <p>Good job! You got that one correct!</p>
-    <button id="finalResult"type="button">Final Results</button>
-  </div>`;
-    } else {
-      return `<div class="results">
-    <h2>Incorrect...</h2>
-    <p>Sorry but that's incorrect...</p>
-    <p>The correct answer was ${store.questions[store.questionNumber].correctAnswer}</p>
-    <button id="finalResult"type="button">Final Results</button>
-  </div>`;
-    }
-  } else {
-    if (answer === correct) {
-      store.score++;
-      return `<div class="results">
+function generateFeedbackCorrect(){
+  return `<div class="results">
     <h2>Correct!</h2>
     <p>Good job! You got that one correct!</p>
     <button id="nextQuestion" type="button">Next Question</button>
   </div>`;
-    } else {
-      return `<div class="results">
+}
+
+function generateFeedbackWrong(){
+  return `<div class="results">
       <h2>Incorrect...</h2>
       <p>Sorry but that's incorrect...</p>
       <p>The correct answer was ${store.questions[store.questionNumber].correctAnswer}.</p>
       <button id="nextQuestion" type="button">Next Question</button>
 </div>`;
-    }
-  }
+}
+
+function generateFeedbackCorrectLast(){
+  return `<div class="results">
+    <h2>Correct!</h2>
+    <p>Good job! You got that one correct!</p>
+    <button id="finalResult"type="button">Final Results</button>
+  </div>`;
+}
+
+function generateFeedbackWrongLast(){
+  return `<div class="results">
+    <h2>Incorrect...</h2>
+    <p>Sorry but that's incorrect...</p>
+    <p>The correct answer was ${store.questions[store.questionNumber].correctAnswer}</p>
+    <button id="finalResult"type="button">Final Results</button>
+  </div>`;
 }
 
 function generateResults() {
@@ -285,7 +281,6 @@ function render() {
 // These functions handle events (submit, click, etc)
 
 function generateCharOne(chars){
-  console.log($('.charOne').children());
   $('.charOne').children().first().text(
     chars[0].name
   );
@@ -342,6 +337,24 @@ function nextQuestion() {
     store.questionNumber++;
     render();
   });
+}
+
+function generateFeedback(answer, correct) {
+  if (store.questionNumber === store.questions.length - 1) {
+    if (answer === correct) {
+      store.score++;
+      return generateFeedbackCorrectLast();
+    } else {
+      return generateFeedbackWrongLast();
+    }
+  } else {
+    if (answer === correct) {
+      store.score++;
+      return generateFeedbackCorrect();
+    } else {
+      return generateFeedbackWrong();
+    }
+  }
 }
 
 function finalResult() {
